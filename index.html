@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de exercício</title>
+    <style>
+        @charset "UTF-8";
+
+        body{
+            background-color: darkcyan;
+            font-family: Arial normal 15pt;
+            color: white;
+            text-align: center;
+
+        }
+        section{
+            color: black;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.382);
+        }
+        div{
+            text-align: center;
+            padding: 10px 10px;
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+
+        img#imagem{
+            width: 30vw;
+            height: 30vh;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+    <section>
+        <div id="msg">
+            Aqui vai aparecer a mensagem...
+        </div>
+        <div id="foto">
+            <img id="imagem" src="imagens/manha.jpg" alt="foto da manhã">
+        </div>
+    </section>
+    <footer>
+        <p>teste de javascript &copy;</p>
+    </footer>
+    <script>
+        function carregar(){
+            var msg = window.document.getElementById('msg')
+        var img = window.document.getElementById('imagem')
+        var data = new Date()
+        //var hora = 7
+        var hora = data.getHours()
+        msg.innerHTML = `Agora são ${hora} horas`
+        if (hora >= 0 && hora < 12){
+            msg.innerHTML = `BOM DIA <br><br>
+            Agora são ${hora} horas`
+            //BOM DIA
+            img.src = 'imagens/manha.jpg'
+            document.body.style.background = '#e2cd9f'
+        }else if (hora >= 12 && hora < 18){
+            msg.innerHTML = `BOA TARDE <br><br>
+            Agora são ${hora} horas`
+            //BOA TARDE
+            img.src = 'imagens/tarde.jpg'
+            document.body.style.background = '#b9846f'
+        }else{
+            msg.innerHTML = `BOA NOITE <br><br>
+            Agora são ${hora} horas`
+            //BOA NOITE
+            img.src = 'imagens/noite.jpg'
+            document.body.style.background = '#515154'
+        }
+        }
+    </script>
+</body>
+</html>
